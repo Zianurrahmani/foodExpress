@@ -5,13 +5,20 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import ProductList from "./src/screens/ProductList";
 import Cart from "./src/screens/Cart";
+import colors from "./src/global/colors";
 const Drawer = createDrawerNavigator();
+
+import { Menu } from "./src/screens/Menu";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="ProductList">
-        <Drawer.Screen name="ProductList" component={ProductList} />
+      <Drawer.Navigator
+        drawerContent={(props) => <Menu {...props} />}
+        initialRouteName="Product List"
+        screenOptions={{ headerShown: false }}
+      >
+        <Drawer.Screen name="Product List" component={ProductList} />
         <Drawer.Screen name="Cart" component={Cart} />
       </Drawer.Navigator>
     </NavigationContainer>
