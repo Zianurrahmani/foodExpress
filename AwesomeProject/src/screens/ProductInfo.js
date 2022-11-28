@@ -234,29 +234,54 @@ const ProductInfo = ({ route, navigation }) => {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity
-          onPress={() => (product.isAvailable ? addToCart(product.id) : null)}
-          style={{
-            width: "86%",
-            height: "90%",
-            backgroundColor: colors.primary,
-            borderRadius: 20,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text
+        {product.isAvailable ? (
+          <TouchableOpacity
+            onPress={() => addToCart(product.id)}
             style={{
-              fontSize: 12,
-              fontWeight: "500",
-              letterSpacing: 1,
-              color: colors.white,
-              textTransform: "uppercase",
+              width: "86%",
+              height: "90%",
+              backgroundColor: colors.primary,
+              borderRadius: 20,
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            {product.isAvailable ? "Add to cart" : "Not Avialable"}
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "500",
+                letterSpacing: 1,
+                color: colors.white,
+                textTransform: "uppercase",
+              }}
+            >
+              Add to cart
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <View
+            style={{
+              width: "86%",
+              height: "90%",
+              backgroundColor: "grey",
+              borderRadius: 20,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "500",
+                letterSpacing: 1,
+                color: colors.white,
+                textTransform: "uppercase",
+              }}
+            >
+              Not Available
+            </Text>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
