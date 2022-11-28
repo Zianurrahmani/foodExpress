@@ -29,10 +29,6 @@ const ProductInfo = ({ route, navigation }) => {
 
   const width = Dimensions.get("window").width;
 
-  const scrollX = new Animated.Value(0);
-
-  let position = Animated.divide(scrollX, width);
-
   useFocusEffect(
     React.useCallback(() => {
       const unsubscribe = navigation.addListener("focus", () => {
@@ -83,28 +79,6 @@ const ProductInfo = ({ route, navigation }) => {
         return error;
       }
     }
-  };
-
-  const renderProduct = ({ item, index }) => {
-    return (
-      <View
-        style={{
-          width: "100%",
-          height: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Image
-          source={item}
-          style={{
-            width: "100%",
-            height: "100%",
-            resizeMode: "contain",
-          }}
-        />
-      </View>
-    );
   };
 
   return (
