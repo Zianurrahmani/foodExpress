@@ -74,7 +74,7 @@ const ProductInfo = ({ route, navigation }) => {
           "Item Added Successfully to cart",
           ToastAndroid.SHORT
         );
-        navigation.navigate("Home");
+        navigation.navigate("Product List");
       } catch (error) {
         return error;
       }
@@ -108,7 +108,7 @@ const ProductInfo = ({ route, navigation }) => {
             style={{ width: width, height: 500 }}
           />
           <TouchableOpacity
-            onPress={() => navigation.goBack("Home")}
+            onPress={() => navigation.goBack("Product List")}
             style={{
               position: "absolute",
               flex: 1,
@@ -156,7 +156,7 @@ const ProductInfo = ({ route, navigation }) => {
                 color: colors.black,
               }}
             >
-              Shopping
+              {product.category}
             </Text>
           </View>
           <View
