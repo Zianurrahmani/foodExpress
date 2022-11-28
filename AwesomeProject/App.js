@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import ProductList from "./src/screens/ProductList";
+import ProductInfo from "./src/screens/ProductInfo";
 import Cart from "./src/screens/Cart";
-import colors from "./src/global/colors";
 const Drawer = createDrawerNavigator();
 
 import { Menu } from "./src/screens/Menu";
@@ -19,6 +19,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Drawer.Screen name="Product List" component={ProductList} />
+        <Drawer.Screen name="ProductInfo" component={ProductInfo} />
         <Drawer.Screen name="Cart" component={Cart} />
       </Drawer.Navigator>
     </NavigationContainer>
